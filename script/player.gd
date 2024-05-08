@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const accel = 800
+#最大速度
 const max_speed = 110
 const friction = 600
 
@@ -11,7 +12,7 @@ var velocity2 = Vector2.ZERO
 func _ready():
 	$AnimationTree.active = true
 	$AnimationTree.set("parameters/idel/blend_position", Vector2.DOWN)
-
+#玩家行动逻辑
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	
