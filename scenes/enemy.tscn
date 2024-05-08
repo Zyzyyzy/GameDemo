@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://ctx22l88h3jp"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_hyacw"]
+[ext_resource type="Script" path="res://script/enemy.gd" id="1_hyacw"]
 [ext_resource type="Texture2D" uid="uid://dppaftluyt1g0" path="res://assets/characters/slime.png" id="1_pgtck"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xwl0"]
@@ -134,33 +134,36 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k538a"]
-radius = 56.0
+radius = 75.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_626wf"]
-radius = 4.12311
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6fv1"]
+radius = 4.0
 
 [node name="enemy" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_hyacw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_yntkh")
 animation = &"idle"
-frame_progress = 0.269642
 speed_scale = -1.0
-offset = Vector2(0, -8)
+offset = Vector2(0, -5)
 
 [node name="detection_aera" type="Area2D" parent="."]
-light_mask = 2
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_aera"]
-light_mask = 4
+y_sort_enabled = true
 shape = SubResource("CircleShape2D_k538a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 4
-shape = SubResource("CircleShape2D_626wf")
+y_sort_enabled = true
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_o6fv1")
 
 [connection signal="body_entered" from="detection_aera" to="." method="_on_detection_aera_body_entered"]
 [connection signal="body_exited" from="detection_aera" to="." method="_on_detection_aera_body_exited"]

@@ -396,7 +396,6 @@ collision_layer = 3
 script = ExtResource("1_fy12m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(45, 40)
 texture = ExtResource("1_iu1fh")
 offset = Vector2(0, -14)
 flip_h = true
@@ -406,7 +405,6 @@ frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 5
-position = Vector2(45, 40)
 shape = SubResource("CircleShape2D_qn8e3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
