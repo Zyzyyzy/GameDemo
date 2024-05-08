@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const accel = 800
+#最大速度
 const max_speed = 110
 const friction = 600
 
