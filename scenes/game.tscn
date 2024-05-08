@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c62x52ycanxv6"]
+[gd_scene load_steps=10 format=3 uid="uid://c62x52ycanxv6"]
 
 [ext_resource type="PackedScene" uid="uid://bub41pkdtp6fc" path="res://scenes/player.tscn" id="1_fr3n8"]
 [ext_resource type="Texture2D" uid="uid://d3bch5oyurj75" path="res://assets/tilesets/plains.png" id="2_ws81d"]
 [ext_resource type="Texture2D" uid="uid://dkwgti72w5ha7" path="res://assets/tilesets/grass.png" id="3_a52lt"]
 [ext_resource type="Texture2D" uid="uid://bm3j2540l2se3" path="res://assets/objects/objects.png" id="4_2rwee"]
+[ext_resource type="PackedScene" uid="uid://ctx22l88h3jp" path="res://enemy.tscn" id="5_c3bl3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_effyx"]
 texture = ExtResource("3_a52lt")
@@ -239,3 +240,8 @@ position = Vector2(-4, 47)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(43, 25)
+
+[node name="enemy" parent="." instance=ExtResource("5_c3bl3")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(115, 135)
