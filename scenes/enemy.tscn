@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://ctx22l88h3jp"]
+[gd_scene load_steps=25 format=3 uid="uid://ctx22l88h3jp"]
 
 [ext_resource type="Script" path="res://script/enemy.gd" id="1_hyacw"]
 [ext_resource type="Texture2D" uid="uid://dppaftluyt1g0" path="res://assets/characters/slime.png" id="1_pgtck"]
+[ext_resource type="Script" path="res://classes/Hitbox.gd" id="3_idn42"]
+[ext_resource type="Script" path="res://classes/Hurtbox.gd" id="4_b4xlq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xwl0"]
 atlas = ExtResource("1_pgtck")
@@ -139,6 +141,9 @@ radius = 75.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6fv1"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6mue"]
+radius = 6.0
+
 [node name="enemy" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
@@ -162,8 +167,26 @@ shape = SubResource("CircleShape2D_k538a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, -1)
+position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_o6fv1")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_idn42")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_y6mue")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_b4xlq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_y6mue")
 
 [connection signal="body_entered" from="detection_aera" to="." method="_on_detection_aera_body_entered"]
 [connection signal="body_exited" from="detection_aera" to="." method="_on_detection_aera_body_exited"]

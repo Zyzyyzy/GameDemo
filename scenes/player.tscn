@@ -1,7 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://bub41pkdtp6fc"]
+[gd_scene load_steps=36 format=3 uid="uid://bub41pkdtp6fc"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_fy12m"]
 [ext_resource type="Texture2D" uid="uid://bfv31fwwohnuj" path="res://assets/characters/player.png" id="1_iu1fh"]
+[ext_resource type="Script" path="res://classes/Hurtbox.gd" id="3_n3p52"]
+[ext_resource type="Script" path="res://classes/Hitbox.gd" id="4_gld8e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qn8e3"]
 radius = 4.0
@@ -390,6 +392,10 @@ states/move/node = SubResource("AnimationNodeBlendSpace2D_w4mo3")
 states/move/position = Vector2(550, 100)
 transitions = ["Start", "idel", SubResource("AnimationNodeStateMachineTransition_568k0"), "idel", "move", SubResource("AnimationNodeStateMachineTransition_4jnu1"), "move", "idel", SubResource("AnimationNodeStateMachineTransition_shm2m")]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivorq"]
+radius = 5.0
+height = 18.0
+
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 3
@@ -418,3 +424,21 @@ tree_root = SubResource("AnimationNodeStateMachine_j0fkv")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idel/blend_position = Vector2(0.816972, 0.380577)
 parameters/move/blend_position = Vector2(0, 0)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_n3p52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_ivorq")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("4_gld8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_ivorq")
