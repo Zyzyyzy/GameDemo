@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://lwtjs376oddx"]
+
+[ext_resource type="Texture2D" uid="uid://d2ndpcwiaskcg" path="res://assets/NPC/npc2/Idle.png" id="1_muoqg"]
+
+[node name="npc2" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_muoqg")
+hframes = 4
+frame = 3

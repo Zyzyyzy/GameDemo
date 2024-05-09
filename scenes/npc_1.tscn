@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6qfo3loleqs4"]
+
+[ext_resource type="Texture2D" uid="uid://d38cx4106ay0i" path="res://assets/NPC/npc1/Idle.png" id="1_gkely"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gkely")
+hframes = 8
+frame = 1
