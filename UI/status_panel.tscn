@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dood655rmqcwx"]
+
+[ext_resource type="Script" path="res://UI/StatusPanel.gd" id="1_4chot"]
+[ext_resource type="Texture2D" uid="uid://b4qy5uii1t6p5" path="res://assets/objects/Base-01.png" id="2_jyfws"]
+[ext_resource type="Texture2D" uid="uid://bfv31fwwohnuj" path="res://assets/characters/player.png" id="3_vkn4u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnacd"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+texture = ExtResource("2_jyfws")
+region_rect = Rect2(3, 130, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3gcd"]
+atlas = ExtResource("3_vkn4u")
+region = Rect2(64, 70, 17, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fewuu"]
+atlas = ExtResource("2_jyfws")
+region = Rect2(307, 21, 58, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnrch"]
+atlas = ExtResource("2_jyfws")
+region = Rect2(308, 118, 56, 4)
+
+[node name="StatusPanel" type="HBoxContainer"]
+script = ExtResource("1_4chot")
+
+[node name="AvatarBox" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dnacd")
+
+[node name="Avatar" type="TextureRect" parent="AvatarBox"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_k3gcd")
+stretch_mode = 5
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_over = SubResource("AtlasTexture_fewuu")
+texture_progress = SubResource("AtlasTexture_qnrch")
+texture_progress_offset = Vector2(1, 1)

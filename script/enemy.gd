@@ -25,6 +25,13 @@ func _on_detection_aera_body_exited(body):
 	player = null
 	player_chase = false
 
+
+
+func _on_hurtbox_hurt(hitbox: Hitbox) -> void:
+	stats.health -= 1
+	if stats.health == 0:
+		queue_free()
+@onready var stats: Node = $Stats#2024/5/9 23:01制作血量时添加——Buryn
 #连接节点触发之后 史莱姆碰到玩家会被击退
 #func _on_hitbox_area_entered(area):
 	#player = area
