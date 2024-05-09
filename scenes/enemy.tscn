@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctx22l88h3jp"]
+[gd_scene load_steps=26 format=3 uid="uid://ctx22l88h3jp"]
 
 [ext_resource type="Script" path="res://script/enemy.gd" id="1_hyacw"]
 [ext_resource type="Texture2D" uid="uid://dppaftluyt1g0" path="res://assets/characters/slime.png" id="1_pgtck"]
 [ext_resource type="Script" path="res://classes/Hitbox.gd" id="3_idn42"]
 [ext_resource type="Script" path="res://classes/Hurtbox.gd" id="4_b4xlq"]
+[ext_resource type="Script" path="res://classes/Stats.gd" id="5_4e5x3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xwl0"]
 atlas = ExtResource("1_pgtck")
@@ -187,6 +188,9 @@ script = ExtResource("4_b4xlq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_y6mue")
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("5_4e5x3")
 
 [connection signal="body_entered" from="detection_aera" to="." method="_on_detection_aera_body_entered"]
 [connection signal="body_exited" from="detection_aera" to="." method="_on_detection_aera_body_exited"]
