@@ -194,4 +194,3 @@ script = ExtResource("5_4e5x3")
 
 [connection signal="body_entered" from="detection_aera" to="." method="_on_detection_aera_body_entered"]
 [connection signal="body_exited" from="detection_aera" to="." method="_on_detection_aera_body_exited"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

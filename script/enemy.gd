@@ -39,6 +39,4 @@ func _on_hurtbox_hurt(hitbox: Hitbox) -> void:
 @onready var stats: Node = $Stats#2024/5/9 23:01制作血量时添加——Buryn
 #连接节点触发之后 史莱姆碰到玩家会被击退
 func _on_hitbox_area_entered(area):
-	print(area)
-	player = area
-	player_back = true
+	pass
