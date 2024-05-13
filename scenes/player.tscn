@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=44 format=3 uid="uid://bub41pkdtp6fc"]
+=======
+[gd_scene load_steps=38 format=3 uid="uid://bub41pkdtp6fc"]
+>>>>>>> e374bc2c62136b4376bacc44210227a998f66843
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_fy12m"]
 [ext_resource type="Texture2D" uid="uid://bfv31fwwohnuj" path="res://assets/characters/player.png" id="1_iu1fh"]
