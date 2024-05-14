@@ -55,7 +55,6 @@ func move_state(delta):
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
 	
-	
 #攻击
 func attack_state(delta):
 	state_machine.travel("attack")
